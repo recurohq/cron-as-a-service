@@ -1,0 +1,19 @@
+services:
+  cron:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - cron-data:/data
+    environment:
+      - PASSWORD=changeme
+      - TZ=UTC
+      - SMTP_HOST=
+      - SMTP_PORT=587
+      - SMTP_USER=
+      - SMTP_PASS=
+      - SMTP_FROM=
+    restart: unless-stopped
+
+volumes:
+  cron-data:
